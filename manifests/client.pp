@@ -3,18 +3,12 @@
 #
 class burp::client {
 
+  # Configure burp.conf client config file
   file { '/etc/burp/burp.conf':
     ensure  => present,
     mode    => '600',
     content => template("burp/burp.conf.erb"),
     require => Class['burp::package']
-  }
-
-  if ($burp::cron == true){
-    cron { 'initiate backup':
-      command => '/usr/sbin/burp -a t',
-      user    => root,
-    }
   }
 
 }
