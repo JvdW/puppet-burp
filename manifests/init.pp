@@ -24,9 +24,6 @@
 # [*cname*]
 #   The name of the client. Corresponds with client filename in /etc/burp/clientconf on burp server.
 #
-# [*server_can_restore*]
-#   Allow server to initiate restores.
-#
 # [*includes*]
 #   Array of locations to include in backup.
 #
