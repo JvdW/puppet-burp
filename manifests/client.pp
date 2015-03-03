@@ -11,11 +11,9 @@ class burp::client {
   }
 
   if ($burp::cron == true){
-    $randomcron = fqdn_rand(19)
     cron { 'initiate backup':
       command => '/usr/sbin/burp -a t',
       user    => root,
-      minute  => [$randomcron,20+$randomcron, 40+$randomcron]
     }
   }
 
