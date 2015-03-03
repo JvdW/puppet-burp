@@ -13,6 +13,7 @@
 #   This password is used before the first backup, to generate ssl keys.
 #
 # [*client_extra_options*]
+#   Options that are commented in the configfile, uncomment them by adding them here. 
 #   See http://burp.grke.org/docs/manpage.html for all options.
 #
 # [*password*]
@@ -34,7 +35,8 @@
 #   Exceptions on includes.
 #
 # [*server_extra_options*]
-#   Options that are commented in the configfile, uncomment them by adding them here.
+#   Options that are commented in the configfile, uncomment them by adding them here. 
+#   See http://burp.grke.org/docs/manpage.html for all options.
 #
 # === Variables
 #
