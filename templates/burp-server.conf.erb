@@ -7,7 +7,7 @@ directory = <%= scope['burp::directory'] %>
 clientconfdir = /etc/burp/clientconfdir
 pidfile = /var/run/burp.server.pid
 hardlinked_archive = 0
-working_dir_recovery_method = delete
+working_dir_recovery_method = <%= scope['burp::working_dir_recovery_method'] %>
 max_children = <%= scope['burp::max_children'] %>
 max_status_children = <%= scope['burp::max_status_children'] %>
 umask = 0022
