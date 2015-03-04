@@ -64,7 +64,6 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-
 class burp (
 
 # client: settings for /etc/burp/burp.conf
