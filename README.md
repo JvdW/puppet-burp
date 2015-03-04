@@ -15,7 +15,7 @@
 
 ## Overview
 
-Install and manage burp. This module contains userdata in yaml format. This module doesn't use exported resources.
+Install and manage Burp - Backup and Restore Program.
 
 ## Module Description
 
