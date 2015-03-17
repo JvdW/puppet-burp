@@ -1,7 +1,6 @@
 # Class: burp::package
 #
-# PPA from https://launchpad.net/~bas-dikkenberg/+archive/burp-latest
-
+#
 class burp::package{
 
   if $::operatingsystem != 'Ubuntu' {
