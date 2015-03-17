@@ -1,7 +1,7 @@
 # Class: burp::package
 #
 #
-class burp::package{
+class burp::package {
 
   if $::operatingsystem != 'Ubuntu' {
     notice('Operatingsystem not supported, perform manual burp installation.')
