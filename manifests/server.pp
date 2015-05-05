@@ -1,6 +1,5 @@
 # Class: burp::server
 #
-#
 class burp::server {
 
   file { '/etc/burp/clientconfdir':
