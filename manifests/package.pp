@@ -1,6 +1,5 @@
 # Class: burp::package
 #
-#
 class burp::package {
 
   if $::operatingsystem != 'Ubuntu' {
