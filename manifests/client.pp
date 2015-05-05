@@ -1,6 +1,5 @@
 # Class: burp::client
 #
-#
 class burp::client {
 
   # Configure burp.conf client config file
