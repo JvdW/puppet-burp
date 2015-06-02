@@ -23,7 +23,7 @@ class burp::package {
     }
 
     package { 'burp':
-      ensure  => latest,
+      ensure  => $burp::version,
       require => [Apt::Ppa['ppa:hugo-vanduijn/burp-latest'], Apt::Key['ppa:hugo-vanduijn/burp-latest']]
     }
   }
