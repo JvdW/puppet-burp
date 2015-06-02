@@ -52,8 +52,9 @@
 # === Examples
 #
 #  class { burp:
-#    client => true,
-#    server => true
+#    version => latest,
+#    client  => true,
+#    server  => true
 #  }
 #
 # === Authors
@@ -65,6 +66,9 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class burp (
+
+# general
+  $version = "1.4.38",
 
 # client: settings for /etc/burp/burp.conf
   $client                  = true,
