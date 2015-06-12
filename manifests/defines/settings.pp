@@ -2,7 +2,7 @@
 #
 define burp::defines::settings (
   $foosetting,
-  $value,
+  $foovalue,
   ) {
   
   # Common settings
