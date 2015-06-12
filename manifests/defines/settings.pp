@@ -7,10 +7,10 @@ define burp::defines::settings (
   
   # Common settings
   Ini_setting {
-	  ensure  => present,
-	  path    => "/tmp/foo.ini",
-	  section => '',
-	}
+    ensure  => present,
+    path    => "/tmp/foo.ini",
+    section => '',
+  }
   
   ini_setting { 'sample setting':
     setting => $foosetting,
