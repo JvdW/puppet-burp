@@ -114,4 +114,6 @@ class burp (
     class { 'burp::client': }
   }
   
+  class { 'burp::settings': }
+  
 }
