@@ -68,7 +68,7 @@
 class burp (
 
 # general
-  $version = "1.4.38",
+  $version = "1.4.36",
 
 # client: settings for /etc/burp/burp.conf
   $client                  = true,
