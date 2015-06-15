@@ -14,7 +14,7 @@ class burp::package {
       ensure => installed
     }
 
-    wget::fetch { "burp_package":
+    wget::fetch { 'burp_package':
       source      => "http://burp.grke.org/downloads/burp-${burp::version}/burp-${burp::version}.tar.bz2",
       destination => "/tmp/burp-${burp::version}.tar.bz2",
       timeout     => 0,
@@ -24,7 +24,7 @@ class burp::package {
     exec { 'unpack_burp':
       command => "/bin/tar -xzvf /tmp/burp-${burp::version}.tar.bz2 -C /tmp/",
       unless  => "/usr/bin/test -d /tmp/burp-${burp::version}",
-      require => Wget::fetch['burp_package']
+      require => Wget::Fetch['burp_package']
     }
     
     exec { 'configure_burp':
