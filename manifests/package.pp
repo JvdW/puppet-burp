@@ -22,7 +22,7 @@ class burp::package {
     }
 
     exec { 'unpack_burp':
-      command => "/bin/tar -xzvf /tmp/burp-${burp::version}.tar.bz2 -C /tmp/",
+      command => "/bin/tar -xvf /tmp/burp-${burp::version}.tar.bz2 -C /tmp/",
       unless  => "/usr/bin/test -d /tmp/burp-${burp::version}",
       require => Wget::Fetch['burp_package']
     }
