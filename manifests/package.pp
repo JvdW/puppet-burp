@@ -28,7 +28,7 @@ class burp::package {
     }
     
     exec { 'configure_burp':
-      command => "/tmp/burp-${burp::version}/configure.sh && /usr/bin/make && /usr/bin/make install",
+      command => "/tmp/burp-${burp::version}/configure && /usr/bin/make && /usr/bin/make install",
       cwd     => "/tmp/burp-${burp::version}",
       unless  => "/usr/bin/test -d /etc/burp",
       require => Exec['unpack_burp']
