@@ -18,7 +18,7 @@ class burp::server {
   #  }
   #}
   
-  # /etc/burp/clientconfdir, each client needs a config file on the server
+  # Fill /etc/burp/clientconfdir directory, each client needs a config file on the server
   create_resources('burp::defines::clientconf', $burp::defines::clientconf_hash)
 
 }
