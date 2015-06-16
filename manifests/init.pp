@@ -103,6 +103,7 @@ class burp (
   $burp-server_hash = { 'server' => { key   => 'server', 
                                       value => 'bladiebla'
                                     },
+                      },
 ) {
 
   # Install package 
