@@ -18,6 +18,6 @@ class burp::server {
   #  }
   #}
 
-  create_resources('burp::clientconf', $burp::clientconf_hash)
+  create_resources('burp::defines::clientconf', $burp::defines::clientconf_hash)
 
 }
