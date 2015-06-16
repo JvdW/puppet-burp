@@ -9,15 +9,6 @@ class burp::server {
     content => template("burp/common.erb"),
   }
 
-  # Modify backup_stats file so that logstash can use it as input
-  #if $burp::backup_stats_logstash == true {
-  #  file { '/etc/burp/notify_script':
-  #    content => template("burp/notify_script.erb"),
-  #    mode    => 0700,
-  #    require => Package['burp']
-  #  }
-  #}
-  
   # Fill /etc/burp/clientconfdir directory, each client needs a config file on the server
   create_resources('burp::defines::clientconf', $burp::defines::clientconf_hash)
 
