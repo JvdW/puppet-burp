@@ -8,11 +8,11 @@ define burp::defines::settings (
   # Common settings
   Ini_setting {
     ensure  => present,
-    path    => "/tmp/foo.ini",
+    path    => "/etc/burp/burp-server.conf",
     section => '',
   }
   
-  ini_setting { 'sample setting':
+  ini_setting { 'burp-server.conf':
     setting => $foosetting,
     value   => $foovalue,
   }
