@@ -13,6 +13,6 @@ class burp::server {
   create_resources( 'burp::defines::clientconf', $burp::defines::clientconf_hash )
   
   # Set settings in /etc/burp/burp-server.conf
-  create_resources( 'burp::defines::burp-server', $burp::burp-server_hash )
+  create_resources( 'burp::defines::burp-server', $burp::burp_server_hash )
 
 }
