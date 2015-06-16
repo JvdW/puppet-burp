@@ -1,6 +1,6 @@
-
-
-
+# Class: burp::service
+#
+class burp::service {
 
 # Service file
   file { '/etc/default/burp':
@@ -14,3 +14,5 @@
     ensure  => 'running',
     require => File['/etc/default/burp'] 
   }
+
+}
