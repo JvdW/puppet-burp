@@ -17,7 +17,8 @@ class burp::server {
   #    require => Package['burp']
   #  }
   #}
-
+  
+  # Each client needs a config file on the server
   create_resources('burp::defines::clientconf', $burp::defines::clientconf_hash)
 
 }
