@@ -10,9 +10,9 @@ class burp::server {
   }
 
   # Fill /etc/burp/clientconfdir directory, each client needs a config file
-  create_resources( 'burp::defines::clientconf', $burp::defines::clientconf_hash )
+  create_resources( 'burp::defines::clientconf', $burp::clientconf_hash )
   
   # Set settings in /etc/burp/burp-server.conf
-  create_resources( 'burp::defines::burp-server', $burp::defines::burp_server_hash )
+  create_resources( 'burp::defines::burp-server', $burp::burp_server_hash )
 
 }
