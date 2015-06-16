@@ -106,9 +106,13 @@ class burp (
   # Install package 
   include burp::package
 
-  #if $server == true {
-  #  class { 'burp::server': }
-  #}
+  if $server == true {
+    class { 'burp::server': 
+    }
+    class { 'burp::service':
+      require => Class['burp::server']
+    }
+  }
 
   #if $client == true {
   #  class { 'burp::client': }
