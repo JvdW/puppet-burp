@@ -1,8 +1,8 @@
-# Define: burp::defines::settings
+# Define: burp::defines::burp-server
 #
-define burp::defines::settings (
-  $foosetting,
-  $foovalue,
+define burp::defines::burp-server (
+  $key,
+  $value,
   ) {
   
   # Common settings
@@ -13,8 +13,8 @@ define burp::defines::settings (
   }
   
   ini_setting { 'burp-server.conf':
-    setting => $foosetting,
-    value   => $foovalue,
+    setting => $key,
+    value   => $value,
   }
 
 }
