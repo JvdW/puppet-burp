@@ -100,7 +100,7 @@ class burp (
                        'linuxclient.domain' => { password => 'password', },
                        'workstation.domain' => { password => 'password', },
                      },
-  $burp-server_hash = { 'server' => { key   => 'server', 
+  $burp_server_hash = { 'server' => { key   => 'server', 
                                       value => 'bladiebla'
                                     },
                       },
