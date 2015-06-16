@@ -104,6 +104,10 @@ class burp (
                                       value => 'bladiebla'
                                     },
                       },
+  
+  $burp_hash = { 'server' => { value => '10.1.1.1',
+                             },
+               },
 ) {
 
   # Install package 
