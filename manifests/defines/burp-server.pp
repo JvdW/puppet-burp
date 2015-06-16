@@ -1,6 +1,6 @@
-# Define: burp::defines::burp-server
+# Define: burp::defines::burp_server
 #
-define burp::defines::burp-server (
+define burp::defines::burp_server (
   $key,
   $value,
   ) {
