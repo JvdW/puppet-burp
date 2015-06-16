@@ -100,7 +100,9 @@ class burp (
                        'linuxclient.domain' => { password => 'password', },
                        'workstation.domain' => { password => 'password', },
                      },
-  $settings_hash,
+  $burp-server_hash = { 'server' => { key   => 'server', 
+                                      value => 'bladiebla'
+                                    },
 ) {
 
   # Install package 
