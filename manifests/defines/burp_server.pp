@@ -12,7 +12,7 @@ define burp::defines::burp_server (
     section => '',
   }
   
-  ini_setting { 'burp-server.conf':
+  ini_setting { '/etc/burp/burp-server.conf':
     setting => $key,
     value   => $value,
   }
