@@ -1,7 +1,6 @@
 # Define: burp::defines::burp
 #
 define burp::defines::burp (
-  $key,
   $value,
   ) {
   
@@ -13,7 +12,7 @@ define burp::defines::burp (
   }
   
   ini_setting { '/etc/burp/burp.conf':
-    setting => $key,
+    setting => $title,
     value   => $value,
   }
 
