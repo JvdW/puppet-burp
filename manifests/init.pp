@@ -100,12 +100,17 @@ class burp (
                        'linuxclient.domain' => { password => 'password', },
                        'workstation.domain' => { password => 'password', },
                      },
-  $burp_server_hash = { 'syslog' => { value => '1',
+  $burp_server_hash = { 'client' => { value => 'true',
                                     },
                       },
   
-  $burp_hash = { 'server' => { value => '10.1.1.1',
-                             },
+  # client: settings for /etc/burp/burp.conf
+  $burp_hash = { 'server'                  => { value => '10.1.1.1',
+                                              },
+                 'client_ssl_key_password' => { value => 'ssl_key_password',
+                                              },
+                 'password'                => { value => 'password',
+                                              },
                },
 ) {
 
