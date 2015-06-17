@@ -70,17 +70,6 @@ class burp (
 # general
   $version = "1.4.36",
 
-# client: settings for /etc/burp/burp.conf
-  $client                  = true,
-  $client_ssl_key_password = "ssl_key_password",
-  $client_extra_options    = [ 'ratelimit=10', 'vss_drives=0' ],
-  $password                = "password",
-  $server_ip               = "172.16.3.13",
-  $cname                   = $fqdn,
-  $server_can_restore      = "1",
-  $includes                = [ '/home', '/var/log' ],
-  $excludes                = [ '/home/ubuntu' ],
- 
 # server: settings for /etc/burp-server.conf
   $server                      = false,
   $server_ssl_key_password     = "ssl_key_password",
@@ -110,6 +99,10 @@ class burp (
                  'client_ssl_key_password' => { value => 'ssl_key_password',
                                               },
                  'password'                => { value => 'password',
+                                              },
+                 'cname'                   => { value => $fqdn,
+                                              },
+                 'server_can_restore'      => { value => '1',
                                               },
                  'includes'                => { value => '[ '/home', '/etc/vpnc' ]',
                                               },
