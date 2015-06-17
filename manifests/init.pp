@@ -100,8 +100,8 @@ class burp (
                        'linuxclient.domain' => { password => 'password', },
                        'workstation.domain' => { password => 'password', },
                      },
-  $burp_server_hash = { 'server' => { setting => 'setting', 
-                                      value   => 'value'
+  $burp_server_hash = { 'syslog' => { setting => 'syslog', 
+                                      value   => '0'
                                     },
                       },
   
