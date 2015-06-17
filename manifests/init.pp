@@ -121,9 +121,9 @@ class burp (
     }
   }
 
-  #if $client == true {
-  #  class { 'burp::client': }
-  #}
+  if $client == true {
+    class { 'burp::client': }
+  }
   
   #class { 'burp::settings': }
   
