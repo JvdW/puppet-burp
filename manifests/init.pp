@@ -104,12 +104,16 @@ class burp (
                                     },
                       },
   
-  # client: settings for /etc/burp/burp.conf
+  # client: default settings for /etc/burp/burp.conf
   $burp_hash = { 'server'                  => { value => '10.1.1.1',
                                               },
                  'client_ssl_key_password' => { value => 'ssl_key_password',
                                               },
                  'password'                => { value => 'password',
+                                              },
+                 'includes'                => { value => '[ '/home', '/etc/vpnc' ]',
+                                              },
+                 'excludes'                => { value => '[ '/home/ubuntu' ]',
                                               },
                },
 ) {
