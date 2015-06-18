@@ -11,7 +11,7 @@ define burp::defines::burp (
     section => '',
   }
   
-  ini_setting { '/etc/burp/burp.conf':
+  ini_setting { $title:
     setting => $title,
     value   => $value,
   }
