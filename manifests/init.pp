@@ -105,9 +105,9 @@ class burp (
                                               },
                  'server_can_restore'      => { value => '1',
                                               },
-                 'includes'                => { value => '[ '/home', '/etc/vpnc' ]',
+                 'includes'                => { value => '/home', '/etc/vpnc',
                                               },
-                 'excludes'                => { value => '[ '/home/ubuntu' ]',
+                 'excludes'                => { value => '/home/ubuntu',
                                               },
                },
 ) {
