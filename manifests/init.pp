@@ -79,7 +79,7 @@ class burp (
                      },
 
   # server: settings for /etc/burp-server.conf
-  $burp_server_hash = { 'ssl_key_password' => { value => 'password',
+  $burp_server_hash = { 'ssl_key_password' => { value => 'difficultpassword',
                                               },
                       },
   
