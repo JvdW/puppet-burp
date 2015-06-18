@@ -67,50 +67,39 @@
 #
 class burp (
 
-# general
+  # general
   $version = "1.4.36",
+  $server  = true,
+  $client  = true,
 
-# server: settings for /etc/burp-server.conf
-  $server                      = false,
-  $server_ssl_key_password     = "ssl_key_password",
-  $directory                   = "/mnt/backup/burpdata",
-  $working_dir_recovery_method = "resume",
-  $max_children                = "25",
-  $max_status_children         = "25",
-  $keep                        = "100",
-  $waittime                    = "20h",
-  $starttime                   = "Mon,Tue,Wed,Thu,Fri,Sat,Sun,00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
-  $backup_stats_logstash       = true,
-  $common_clientconfig         = [ 'randomise=1200' ],
-  $server_extra_options        = [ 'ratelimit=10' ],
-  
   # server: create client config files in /etc/clientconfdir
   $clientconf_hash = { 'localhost'          => { password => 'password', },
                        'linuxclient.domain' => { password => 'password', },
                        'workstation.domain' => { password => 'password', },
                      },
 
-  $burp_server_hash = { 'client' => { value => 'true',
-                                    },
+  # server: settings for /etc/burp-server.conf
+  $burp_server_hash = { 'ssl_key_password' => { value => 'password',
+                                              },
                       },
   
   # client: default settings for /etc/burp/burp.conf
-  $burp_hash = { 'server'                  => { value => '10.1.1.2',
-                                              },
-                 'client_ssl_key_password' => { value => 'ssl_key_password',
-                                              },
-                 'password'                => { value => 'password',
-                                              },
-                 'cname'                   => { value => '$fqdn',
-                                              },
-                 'server_can_restore'      => { value => '1',
-                                              },
-                 'include'                 => { value => '/home',
-                                              },
-                 'include'                 => { value => '/etc/vpnc',
-                                              },
-                 'excludes'                => { value => '/home/ubuntu',
-                                              },
+  $burp_hash = { 'server'             => { value => '10.1.1.2',
+                                         },
+                 'ssl_key_password'   => { value => 'password',
+                                         },
+                 'password'           => { value => 'password',
+                                         },
+                 'cname'              => { value => '$fqdn',
+                                         },
+                 'server_can_restore' => { value => '1',
+                                         },
+                 'include'            => { value => '/home',
+                                         },
+                 'include'            => { value => '/etc/vpnc',
+                                         },
+                 'excludes'           => { value => '/home/ubuntu',
+                                         },
                },
 ) {
 
