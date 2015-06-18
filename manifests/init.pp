@@ -84,11 +84,12 @@ class burp (
   $common_clientconfig         = [ 'randomise=1200' ],
   $server_extra_options        = [ 'ratelimit=10' ],
   
-# server: create client config files in /etc/clientconfdir
+  # server: create client config files in /etc/clientconfdir
   $clientconf_hash = { 'localhost'          => { password => 'password', },
                        'linuxclient.domain' => { password => 'password', },
                        'workstation.domain' => { password => 'password', },
                      },
+
   $burp_server_hash = { 'client' => { value => 'true',
                                     },
                       },
