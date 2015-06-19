@@ -20,6 +20,6 @@ define burp::defines::clientconfdir (
   #  value   => $burp::clientconfdir_hash[$settings][$value],
   #}
   
-  notify ($settings)
+  notice ($settings)
 
 }
