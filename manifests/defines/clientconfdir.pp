@@ -10,6 +10,6 @@ define burp::defines::clientconfdir (
   }
   
   # Fill /etc/burp/clientconfdir directory, each client needs a config file
-  create_resources( 'burp::defines::clientconf', $clientconf_hash )
+  create_resources( 'burp::defines::clientconf', $burp::clientconfdir_hash[settings] )
 
 }
