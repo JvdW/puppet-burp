@@ -19,5 +19,7 @@ define burp::defines::clientconfdir (
     setting => $clientconfdir_hash[$settings][$title],
     value   => $clientconfdir_hash[$settings][$value],
   }
+  
+  notice ($clientconfdir_hash[$settings][$title])
 
 }
