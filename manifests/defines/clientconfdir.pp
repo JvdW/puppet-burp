@@ -6,9 +6,9 @@ define burp::defines::clientconfdir (
   $value,
   ) {
 
-  file { "/etc/burp/clientconfdir/${title}":
-    mode => "600",
-  }
+  #file { "/etc/burp/clientconfdir/${title}":
+  #  mode => "600",
+  #}
   
   # Common settings
   #Ini_setting {
