@@ -71,7 +71,7 @@ class burp (
   $version = "1.4.36",
   $server  = true,
   $client  = true,
-
+  
   # server: create client config files in /etc/burp/clientconfdir
   $clientconf_hash = { 'localhost'          => { clientconf => [ 'password = password',
                                                                  'key = value',
