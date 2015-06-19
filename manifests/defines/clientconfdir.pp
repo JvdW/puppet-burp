@@ -1,9 +1,7 @@
 # Define: burp::defines::clientconfdir
 #
 define burp::defines::clientconfdir (
-  #$clientconfdir_hash,
-  #$settings,
-  #$value,
+  $settings,
   ) {
 
   #file { "/etc/burp/clientconfdir/${title}":
@@ -22,6 +20,6 @@ define burp::defines::clientconfdir (
   #  value   => $burp::clientconfdir_hash[$settings][$value],
   #}
   
-  notify ($burp::clientconfdir_hash['settings'])
+  notify ($settings)
 
 }
