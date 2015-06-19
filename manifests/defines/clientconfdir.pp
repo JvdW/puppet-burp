@@ -5,7 +5,7 @@ define burp::defines::clientconfdir (
   ) {
 
   file { "/etc/burp/clientconfdir/${title}":
-    mode    => "600",
+    mode => "600",
   }
 
 }
