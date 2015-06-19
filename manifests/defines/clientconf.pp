@@ -1,9 +1,10 @@
 # Define: burp::defines::clientconf
 #
 define burp::defines::clientconf (
-  $setting,
-  $value,
+  $setting = $title,
   ) {
+  
+  $value = $clientconfdir_hash[$settings]
   
   # Common settings
   Ini_setting {
