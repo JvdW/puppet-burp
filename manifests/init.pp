@@ -73,11 +73,15 @@ class burp (
   $client  = true,
 
   # server: create client config files in /etc/burp/clientconfdir
-  $clientconf_hash = { 'localhost'          => { clientconf => [ 'password = password' ],
+  $clientconf_hash = { 'localhost'          => { clientconf => [ 'password = password',
+                                                                 'key = value',
+                                                               ],
                                                },
-                       'linuxclient.domain' => { clientconf => [ 'password = password' ],
+                       'linuxclient.domain' => { clientconf => [ 'password = password' 
+                                                               ],
                                                },
-                       'workstation.domain' => { clientconf => [ 'password = password' ],
+                       'workstation.domain' => { clientconf => [ 'password = password' 
+                                                               ],
                                                },
                      },
   
