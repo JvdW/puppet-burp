@@ -15,10 +15,10 @@ define burp::defines::clientconfdir (
     section => '',
   }
   
-  ini_setting { "/etc/burp/clientconfdir/${title}":
-    setting => $clientconfdir_hash[$settings][$title],
-    value   => $clientconfdir_hash[$settings][$value],
-  }
+  #ini_setting { "/etc/burp/clientconfdir/${title}":
+  #  setting => $clientconfdir_hash[$settings][$title],
+  #  value   => $clientconfdir_hash[$settings][$value],
+  #}
   
   notice ($clientconfdir_hash[$settings][$title])
 
