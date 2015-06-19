@@ -78,8 +78,8 @@ class burp (
                                                         },
                                           },
                                           
-                          'client-002' => { settings => { setting => 'password',
-                                                          value   => 'password',
+                          'client-001' => { settings => { setting => 'bla',
+                                                          value   => 'diebla',
                                                         },
                                           },  
                         
