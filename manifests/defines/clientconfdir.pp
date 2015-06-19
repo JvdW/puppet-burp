@@ -15,12 +15,11 @@ define burp::defines::clientconfdir (
     section => '',
   }
   
+  # Client specific settings
   ini_setting { "/etc/burp/clientconfdir/${title}":
     setting => $settings['setting'],
     value   => $settings['value']
   }
   
-  notice ($settings['setting'])
-  notice ($settings['value'])
 
 }
