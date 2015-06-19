@@ -2,7 +2,6 @@
 #
 define burp::defines::clientconf (
   $setting = $title,
-  $clientconfdir_hash,
   ) {
   
   $value = $clientconfdir_hash[$settings]
