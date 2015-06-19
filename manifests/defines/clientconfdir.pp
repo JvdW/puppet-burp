@@ -11,11 +11,11 @@ define burp::defines::clientconfdir (
   }
   
   # Common settings
-  Ini_setting {
-    ensure  => present,
-    path    => "/etc/burp/clientconfdir/${title}",
-    section => '',
-  }
+  #Ini_setting {
+  #  ensure  => present,
+  #  path    => "/etc/burp/clientconfdir/${title}",
+  #  section => '',
+  #}
   
   #ini_setting { "/etc/burp/clientconfdir/${title}":
   #  setting => $burp::clientconfdir_hash[$settings][$title],
