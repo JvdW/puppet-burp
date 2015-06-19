@@ -1,7 +1,3 @@
-# This file is needed on the server for each client.
-
-password=<%= scope['burp::password'] %>
-
-# More configuration files can be read, using syntax like the following
-. incexc/common
-# . incexc/example
+<% [@clientconf].flatten.each do |configoption| -%>
+<%=configoption %>
+<% end -%>
