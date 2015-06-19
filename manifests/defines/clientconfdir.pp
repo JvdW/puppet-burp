@@ -2,14 +2,22 @@
 #
 define burp::defines::clientconfdir (
   $clientconfdir_hash,
-  $settings,
   ) {
 
   file { "/etc/burp/clientconfdir/${title}":
     mode => "600",
   }
   
-  # Fill /etc/burp/clientconfdir directory, each client needs a config file
-  create_resources( 'burp::defines::clientconf', $burp::clientconfdir_hash[settings] )
+  # Common settings
+  Ini_setting {
+    ensure  => present,
+    path    => "/etc/burp/clientconfdir/${title}",
+    section => '',
+  }
+  
+  ini_setting { "/etc/burp/clientconfdir/${title}":
+    setting => $clientconfdir_hash[$settings][$title],
+    value   => $clientconfdir_hash[$settings][$value],
+  }
 
 }
