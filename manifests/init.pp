@@ -73,9 +73,8 @@ class burp (
   $client  = true,
 
   # server: create client config files in /etc/clientconfdir
-  $clientconfdir_hash = { 'localhost' => { settings => { '1' => { setting => 'password',
-                                                                  value   => 'password',
-                                                                },
+  $clientconfdir_hash = { 'localhost' => { settings => { 'password' => {value   => 'password',
+                                                                       },
                                                        },
                                          },
                         },
