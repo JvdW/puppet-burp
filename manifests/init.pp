@@ -74,7 +74,7 @@ class burp (
 
   # server: create client config files in /etc/clientconfdir
   $clientconfdir_hash = { 'localhost' => { settings => { setting => 'password',
-                                                         value   => 'password',               },
+                                                         value   => 'password',
                                                        },
                                          },
                         },
