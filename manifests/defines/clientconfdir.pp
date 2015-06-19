@@ -2,6 +2,7 @@
 #
 define burp::defines::clientconfdir (
   $clientconfdir_hash,
+  $settings,
   ) {
 
   file { "/etc/burp/clientconfdir/${title}":
