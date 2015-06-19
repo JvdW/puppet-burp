@@ -85,7 +85,7 @@ class burp (
                                                },
                      },
   
-  # server: settings that apply to all clients /etc/burp/clientconfdir/common
+  # server: settings that apply to all clients /etc/burp/clientconfdir/incexc/common
   $common = [ 'randomise=1200' ],
 
   # server: settings for /etc/burp-server.conf
