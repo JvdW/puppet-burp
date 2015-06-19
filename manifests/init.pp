@@ -72,18 +72,14 @@ class burp (
   $server  = true,
   $client  = true,
 
-  # server: create client config files in /etc/clientconfdir
-  $clientconfdir_hash = { 'client-001' => { settings => { setting => 'password',
-                                                          value   => 'password',
-                                                        },
-                                          },
-                                          
-                          'client-001' => { settings => { setting => 'bla',
-                                                          value   => 'diebla',
-                                                        },
-                                          },  
-                        
-                        },
+  # server: create client config files in /etc/burp/clientconfdir
+  $clientconf_hash = { 'localhost'          => { password => 'password', },
+                       'linuxclient.domain' => { password => 'password', },
+                       'workstation.domain' => { password => 'password', },
+                     },
+  
+  # server: settings that apply to all clients /etc/burp/clientconfdir/common
+  $common = [ 'randomise=1200' ],
 
   # server: settings for /etc/burp-server.conf
   $burp_server_hash = { 'ssl_key_password' => { value => 'password',
