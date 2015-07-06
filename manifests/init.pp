@@ -119,7 +119,8 @@ class burp (
 ) {
 
   # Install package 
-  include burp::package
+  class { 'burp::package':
+  } ->
 
   if $server == true {
     class { 'burp::server': 
