@@ -115,7 +115,8 @@ class burp (
                  'include'            => { value   => '/var/log',
                                            section => '/var/log',
                                          },
-                 'excludes'           => { value => '/home/ubuntu',
+                 'exclude'            => { value   => '/home/ubuntu',
+                                           section => '/home/ubuntu',
                                          },
                },
 ) {
