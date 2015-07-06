@@ -12,7 +12,7 @@ class burp::service {
   # Start service
   service { 'burp':
     ensure  => 'running',
-    require => File['/etc/default/burp'] 
+    #require => File['/etc/default/burp'] 
   }
 
 }
