@@ -7,8 +7,10 @@ define burp::defines::burp (
   
   # Common settings
   Ini_setting {
-    ensure  => present,
-    path    => "/etc/burp/burp.conf",
+    ensure         => present,
+    path           => "/etc/burp/burp.conf",
+    section_prefix => '#',
+    section_suffix => '',
   }
   
   ini_setting { "/etc/burp/burp.conf_${title}":
