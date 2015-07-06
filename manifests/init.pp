@@ -118,9 +118,14 @@ class burp (
                },
 ) {
 
+  # Define stages
+  stage { 'pre': }
+  Stage[ 'pre' ] -> Stage[ 'main' ]
+  
   # Install package 
   class { 'burp::package':
-  } ->
+    stage => 'pre',
+  }
 
   if $server == true {
     class { 'burp::server': 
