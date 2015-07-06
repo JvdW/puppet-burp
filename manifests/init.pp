@@ -118,25 +118,12 @@ class burp (
                },
 ) {
 
-  # Define stages
-  stage { 'pre': }
-  Stage[ 'pre' ] -> Stage[ 'main' ]
-  
-  # Install package 
-  class { 'burp::package':
-    stage => 'pre',
-  }
-
   if $server == true {
-    class { 'burp::server': 
-    }
-    class { 'burp::service':
-      require => Class['burp::server']
-    }
+    class { 'burp::package': } -> class { 'burp::server': } -> class { 'burp::service': }
   }
 
   if $client == true {
-    class { 'burp::client': }
+    class { 'burp::package': } -> class { 'burp::client': }
   }
   
 }
