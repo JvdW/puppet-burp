@@ -118,12 +118,22 @@ class burp (
                },
 ) {
 
+  class { 'burp::package': 
+  }
+
   if $server == true {
-    class { 'burp::package': } -> class { 'burp::server': } -> class { 'burp::service': }
+    class { 'burp::server':
+      require => Class['burp::package']
+    } 
+    class { 'burp::service': 
+      require => Class['burp::server']
+    }
   }
 
   if $client == true {
-    class { 'burp::package': } -> class { 'burp::client': }
+    class { 'burp::client':
+      require => Class['burp::package']
+    }
   }
   
 }
