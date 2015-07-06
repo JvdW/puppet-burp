@@ -9,7 +9,7 @@ define burp::defines::burp (
   Ini_setting {
     ensure         => present,
     path           => "/etc/burp/burp.conf",
-    section_prefix => '#',
+    section_prefix => '##',
     section_suffix => '',
   }
   
