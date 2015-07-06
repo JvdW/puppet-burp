@@ -91,12 +91,12 @@ class burp (
   # server: settings for /etc/burp-server.conf
   $burp_server_hash = { 'ssl_key_password' => { value => 'password',
                                               },
-                        'directory'        => { value => '/backup',
+                        'directory'        => { value => '/tmp',
                                               },
                       },
   
   # client: settings for /etc/burp/burp.conf
-  $burp_hash = { 'server'             => { value => '10.1.1.2',
+  $burp_hash = { 'server'             => { value => 'localhost',
                                          },
                  'ssl_key_password'   => { value => 'password',
                                          },
