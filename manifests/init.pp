@@ -86,7 +86,7 @@ class burp (
                      },
   
   # server: settings that apply to all clients /etc/burp/clientconfdir/incexc/common
-  $common = [ 'randomise=1200' ],
+  $common = [ 'randomise = 1200' ],
 
   # server: settings for /etc/burp-server.conf
   $burp_server_hash = { 'ssl_key_password' => { value => 'password',
@@ -95,7 +95,7 @@ class burp (
                                               },
                       },
   
-  # client: default settings for /etc/burp/burp.conf
+  # client: settings for /etc/burp/burp.conf
   $burp_hash = { 'server'             => { value => '10.1.1.2',
                                          },
                  'ssl_key_password'   => { value => 'password',
