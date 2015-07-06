@@ -102,7 +102,7 @@ class burp (
                                          },
                  'password'           => { value => 'password',
                                          },
-                 'cname'              => { value => %{fqdn},
+                 'cname'              => { value => 'cname',
                                          },
                  'server_can_restore' => { value => '1',
                                          },
