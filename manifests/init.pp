@@ -96,7 +96,7 @@ class burp (
                       },
   
   # client: settings for /etc/burp/burp.conf
-  $burp_hash = { 'server'             => { value => 'localhost',
+  $burp_hash = { 'server'             => { value => '127.0.0.1',
                                          },
                  'ssl_key_password'   => { value => 'password',
                                          },
