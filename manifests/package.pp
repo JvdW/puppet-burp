@@ -2,7 +2,7 @@
 #
 class burp::package {
 
-  $burp_requires = [ "make", "librsync-dev", "libz-dev", "libssl-dev", "uthash-dev", "libyajl-dev" ]
+  $burp_requires = [ "make", "build-essential", "g++", "librsync-dev", "libz-dev", "libssl-dev", "uthash-dev", "libyajl-dev" ]
 
   if $::operatingsystem != 'Ubuntu' {
     notice('Operatingsystem not supported, perform manual burp installation.')
