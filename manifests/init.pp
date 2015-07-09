@@ -6,37 +6,26 @@
 #
 # Document parameters here.
 #
+# [*version*]
+#   Burp version to install.
+#
 # [*client*]
-#   Do you want your instance to have the burp client software installed.
+#   Is your instance a burp client or not?
 #
-# [*client_ssl_key_password*]
-#   This password is used before the first backup, to generate ssl keys.
+# [*server*]
+#   Is your instance a burp server or not?
 #
-# [*client_extra_options*]
-#   Options that are commented in the configfile, uncomment them by adding them here. 
-#   See http://burp.grke.org/docs/manpage.html for all options.
+# [*clientconf_hash*]
+#   Every client needs a client config file on the server.
 #
-# [*password*]
-#   Authentication password between client and server.
+# [*common*]
+#   Settings that apply to all clients.
 #
-# [*server_ip*]
-#   The client will connect to this IP address.
+# [*burp_server_hash*]
+#   Burp server settings.
 #
-# [*cname*]
-#   The name of the client. Corresponds with client filename in /etc/burp/clientconf on burp server.
-#
-# [*server_can_restore*]
-#   Allow server to initiate restores.
-#
-# [*includes*]
-#   Array of locations to include in backup.
-#
-# [*excludes*]
-#   Exceptions on includes.
-#
-# [*server_extra_options*]
-#   Options that are commented in the configfile, uncomment them by adding them here. 
-#   See http://burp.grke.org/docs/manpage.html for all options.
+# [*burp_hash*]
+#   Burp client settings.
 #
 # === Variables
 #
@@ -52,7 +41,7 @@
 # === Examples
 #
 #  class { burp:
-#    version => latest,
+#    version => "1.4.36",
 #    client  => true,
 #    server  => true
 #  }
@@ -73,7 +62,7 @@ class burp (
   $client  = true,
   
   # server: create client config files in /etc/burp/clientconfdir
-  $clientconf_hash = { 'linuxclient.domain' => { clientconf => [ 'password = password',
+  $clientconf_hash = { 'localhost'          => { clientconf => [ 'password = password',
                                                                  '#key     = value'
                                                                ],
                                                },
@@ -99,7 +88,7 @@ class burp (
                                          },
                  'password'           => { value => 'password',
                                          },
-                 'cname'              => { value => 'linuxclient.domain',
+                 'cname'              => { value => 'localhost',
                                          },
                  'server_can_restore' => { value => '1',
                                          },
