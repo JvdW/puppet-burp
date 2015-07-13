@@ -28,7 +28,7 @@
 # === Examples
 #
 #  class { burp:
-#    version => "1.4.36",
+#    version => "1.4.38",
 #    client  => true,
 #    server  => true
 #  }
