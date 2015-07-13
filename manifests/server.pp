@@ -2,46 +2,17 @@
 #
 class burp::server {
 
-  file { '/etc/burp/clientconfdir':
-    ensure  => 'directory',
-    require => Package['burp']
-  }
-
-  file { '/etc/burp/burp-server.conf':
-    ensure  => present,
-    mode    => '600',
-    content => template("burp/burp-server.conf.erb"),
-    require => Package['burp']
-  }
-
-  file { '/etc/default/burp':
-    ensure  => present,
-    mode    => '600',
-    content => template("burp/default.erb"),
-    require => Package['burp']
-  }
-
+  # Common settings for all clients
   file { '/etc/burp/clientconfdir/incexc/common':
     ensure  => present,
     mode    => '600',
     content => template("burp/common.erb"),
-    require => File['/etc/burp/clientconfdir']
   }
 
-  service { 'burp':
-    ensure  => 'running',
-    require => File['/etc/burp/burp-server.conf'] 
-  }
+  # Fill /etc/burp/clientconfdir directory, each client needs a config file
+  create_resources( 'burp::defines::clientconf', $burp::clientconf_hash )
   
-  # Modify backup_stats file so that logstash can use it as input
-  if $burp::backup_stats_logstash == true {
-    file { '/etc/burp/notify_script':
-      content => template("burp/notify_script.erb"),
-      mode    => 0700,
-      require => Package['burp']
-    }
-  }
-
-  create_resources('burp::clientconf', $burp::clientconf_hash)
+  # Set settings in /etc/burp/burp-server.conf
+  create_resources( 'burp::defines::burp_server', $burp::burp_server_hash )
 
 }

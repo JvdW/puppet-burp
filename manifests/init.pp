@@ -1,58 +1,34 @@
 # == Class: burp
 #
-# Full description of class burp here.
+# Install and manage Burp: a network backup and restore program.
 #
 # === Parameters
 #
-# Document parameters here.
+# [*version*]
+#   Burp version to install.
 #
 # [*client*]
-#   Do you want your instance to have the burp client software installed.
+#   Is your instance a burp client or not?
 #
-# [*client_ssl_key_password*]
-#   This password is used before the first backup, to generate ssl keys.
+# [*server*]
+#   Is your instance a burp server or not?
 #
-# [*client_extra_options*]
-#   Options that are commented in the configfile, uncomment them by adding them here. 
-#   See http://burp.grke.org/docs/manpage.html for all options.
+# [*clientconf_hash*]
+#   Every client needs a client config file on the server.
 #
-# [*password*]
-#   Authentication password between client and server.
+# [*common*]
+#   Settings that apply to all clients.
 #
-# [*server_ip*]
-#   The client will connect to this IP address.
+# [*burp_server_hash*]
+#   Burp server settings.
 #
-# [*cname*]
-#   The name of the client. Corresponds with client filename in /etc/burp/clientconf on burp server.
-#
-# [*server_can_restore*]
-#   Allow server to initiate restores.
-#
-# [*includes*]
-#   Array of locations to include in backup.
-#
-# [*excludes*]
-#   Exceptions on includes.
-#
-# [*server_extra_options*]
-#   Options that are commented in the configfile, uncomment them by adding them here. 
-#   See http://burp.grke.org/docs/manpage.html for all options.
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*burp_hash*]
+#   Burp client settings.
 #
 # === Examples
 #
 #  class { burp:
-#    version => latest,
+#    version => "1.4.36",
 #    client  => true,
 #    server  => true
 #  }
@@ -63,55 +39,75 @@
 #
 # === Copyright
 #
-# Copyright 2014 Your name here, unless otherwise noted.
+# Copyright 2015 Rudi Broekhuizen.
 #
 class burp (
 
-# general
-  $version = latest,
-
-# client: settings for /etc/burp/burp.conf
-  $client                  = true,
-  $client_ssl_key_password = "ssl_key_password",
-  $client_extra_options    = [ 'ratelimit=10', 'vss_drives=0' ],
-  $password                = "password",
-  $server_ip               = "172.16.3.13",
-  $cname                   = $fqdn,
-  $server_can_restore      = "1",
-  $includes                = [ '/home', '/var/log' ],
-  $excludes                = [ '/home/ubuntu' ],
- 
-# server: settings for /etc/burp-server.conf
-  $server                      = false,
-  $server_ssl_key_password     = "ssl_key_password",
-  $directory                   = "/mnt/backup/burpdata",
-  $working_dir_recovery_method = "resume",
-  $max_children                = "25",
-  $max_status_children         = "25",
-  $keep                        = "100",
-  $waittime                    = "20h",
-  $starttime                   = "Mon,Tue,Wed,Thu,Fri,Sat,Sun,00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
-  $backup_stats_logstash       = true,
-  $common_clientconfig         = [ 'randomise=1200' ],
-  $server_extra_options        = [ 'ratelimit=10' ],
+  # general
+  $version = "1.4.36",
+  $server  = true,
+  $client  = true,
   
-# server: create client config files in /etc/clientconfdir
-  $clientconf_hash = { 'localhost'          => { password => 'password', },
-                       'linuxclient.domain' => { password => 'password', },
-                       'workstation.domain' => { password => 'password', },
+  # server: create client config files in /etc/burp/clientconfdir
+  $clientconf_hash = { 'localhost'          => { clientconf => [ 'password = password',
+                                                                 '. incexc/common'
+                                                               ],
+                                               },
+                       'workstation.domain' => { clientconf => [ 'password = password',
+                                                                 '. incexc/common'
+                                                               ],
+                                               },
                      },
-  $settings_hash,
+  
+  # server: settings that apply to all clients /etc/burp/clientconfdir/incexc/common
+  $common = [ 'randomise = 1200' ],
+
+  # server: settings for /etc/burp-server.conf
+  $burp_server_hash = { 'ssl_key_password' => { value => 'password',
+                                              },
+                        'directory'        => { value => '/tmp',
+                                              },
+                      },
+  
+  # client: settings for /etc/burp/burp.conf
+  $burp_hash = { 'server'             => { value => '127.0.0.1',
+                                         },
+                 'ssl_key_password'   => { value => 'password',
+                                         },
+                 'password'           => { value => 'password',
+                                         },
+                 'cname'              => { value => 'localhost',
+                                         },
+                 'server_can_restore' => { value => '1',
+                                         },
+                 'include'            => { value   => '/home',
+                                           section => '/home',
+                                         },
+                 'exclude'            => { value   => '/home/ubuntu',
+                                           section => '/home/ubuntu',
+                                         },
+                 'include'            => { value   => '/etc/NetworkManager/system-connections',
+                                           section => '/etc/NetworkManager/system-connections',
+                                         },
+               },
 ) {
 
-  # Install package 
-  include burp::package
+  class { 'burp::package': 
+  }
 
   if $server == true {
-    class { 'burp::server': }
+    class { 'burp::server':
+      require => Class['burp::package']
+    } 
+    class { 'burp::service': 
+      require => Class['burp::server']
+    }
   }
 
   if $client == true {
-    class { 'burp::client': }
+    class { 'burp::client':
+      require => Class['burp::package']
+    }
   }
   
 }
