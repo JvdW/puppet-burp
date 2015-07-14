@@ -44,7 +44,7 @@
 class burp (
 
   # general
-  $version = "1.4.36",
+  $version = "1.4.38",
   $server  = true,
   $client  = true,
   
