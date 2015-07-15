@@ -10,7 +10,6 @@ define burp::defines::burp_server (
     ensure         => present,
     path           => "/etc/burp/burp-server.conf",
     section_prefix => '#[',
-    #section_suffix => '',
   }
   
   ini_setting { "/etc/burp/burp-server.conf_${title}":
