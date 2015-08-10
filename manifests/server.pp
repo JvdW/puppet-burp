@@ -15,4 +15,14 @@ class burp::server {
   # Set settings in /etc/burp/burp-server.conf
   create_resources( 'burp::defines::burp_server', $burp::burp_server_hash )
 
+  if has_key($burp::burp_server_hash, 'directory') {
+    $directory_hash = $burp::burp_server_hash[directory]
+    if is_hash($directory_hash) {
+      $directory = $directory_hash[value]
+    }
+    file { "$directory":
+      ensure  => present,
+      mode    => '600',
+    }
+  }
 }
