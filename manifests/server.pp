@@ -21,8 +21,8 @@ class burp::server {
       $directory = $directory_hash[value]
     }
     file { "$directory":
-      ensure  => present,
-      mode    => '600',
+      ensure => directory,
+      mode   => '600',
     }
   }
 }
