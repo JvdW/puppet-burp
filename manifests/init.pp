@@ -72,7 +72,7 @@ class burp (
                       },
   
   # client: settings for /etc/burp/burp.conf
-  $burp_hash_defaults = { 'path'           => '/etc/burp/burp.conf'
+  $burp_hash_defaults = { 'path'           => '/etc/burp/burp.conf',
                           'section_prefix' => '#[',
 	                },
   $burp_hash = { '' => { 'server'  	      => '127.0.0.1',
