@@ -13,7 +13,7 @@ class burp::server {
   create_resources( 'burp::defines::clientconf', $burp::clientconf_hash )
   
   # Set settings in /etc/burp/burp-server.conf
-  create_resources( 'burp::defines::burp_server', $burp::burp_server_hash )
+  create_ini_settings($burp::burp_server_hash, $burp::burp_server_hash_defaults)
 
   # Create backup directory
   if has_key($burp::burp_server_hash, 'directory') {
