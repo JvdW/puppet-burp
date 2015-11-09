@@ -75,25 +75,18 @@ class burp (
   # client: settings for /etc/burp/burp.conf
   $burp_hash_defaults = { 'path'           => '/etc/burp/burp.conf'
                           'section_prefix' => '#[',
-	            	        },
-  $burp_hash = { 'server'             => { value => '127.0.0.1',
-                                         },
-                 'ssl_key_password'   => { value => 'password',
-                                         },
-                 'password'           => { value => 'password',
-                                         },
-                 'server_can_restore' => { value => '1',
-                                         },
-                 'include'            => { value   => '/home',
-                                           section => '/home',
-                                         },
-                 'exclude'            => { value   => '/home/ubuntu',
-                                           section => '/home/ubuntu',
-                                         },
-                 'include'            => { value   => '/etc/NetworkManager/system-connections',
-                                           section => '/etc/NetworkManager/system-connections',
-                                         },
-               },
+	                },
+  $burp_hash = { '' => { 'server'  	      => '127.0.0.1',
+  		         'ssl_key_password'   => 'password',
+  		         'password'  	      => 'password',
+  		         'server_can_restore' => '1',
+      		         'setting' 	      => { 'ensure' => 'absent'
+      				      	         },
+    		       },
+    		  
+  	    	'/home' => { 'include' => '/home',
+  	      	           },
+  	       },
 ) {
 
   class { 'burp::package': 
