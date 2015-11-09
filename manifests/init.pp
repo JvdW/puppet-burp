@@ -63,6 +63,9 @@ class burp (
   $common = [ 'randomise = 1200' ],
 
   # server: settings for /etc/burp-server.conf
+  $burp_server_hash_defaults = { 'path'           => '/etc/burp/burp-server.conf'
+                                 'section_prefix' => '#[',
+	            	               },
   $burp_server_hash = { 'ssl_key_password' => { value => 'password',
                                               },
                         'directory'        => { value => '/backup',
@@ -70,6 +73,9 @@ class burp (
                       },
   
   # client: settings for /etc/burp/burp.conf
+  $burp_hash_defaults = { 'path'           => '/etc/burp/burp.conf'
+                          'section_prefix' => '#[',
+	            	        },
   $burp_hash = { 'server'             => { value => '127.0.0.1',
                                          },
                  'ssl_key_password'   => { value => 'password',
