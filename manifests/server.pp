@@ -2,6 +2,10 @@
 #
 class burp::server {
 
+  $burp_server_hash_defaults = { 'path'           => '/etc/burp/burp-server.conf',
+                                 'section_prefix' => '#[',
+	                    	       }
+
   # Common settings for all clients
   file { '/etc/burp/clientconfdir/incexc/common':
     ensure  => present,
@@ -13,7 +17,7 @@ class burp::server {
   create_resources( 'burp::defines::clientconf', $burp::clientconf_hash )
   
   # Set settings in /etc/burp/burp-server.conf
-  create_ini_settings($burp::burp_server_hash, $burp::burp_server_hash_defaults)
+  create_ini_settings($burp::burp_server_hash, $burp_server_hash_defaults)
 
   # Create backup directory
   if has_key($burp::burp_server_hash, 'directory') {
