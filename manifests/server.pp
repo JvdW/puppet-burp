@@ -4,7 +4,7 @@ class burp::server {
 
   $burp_server_hash_defaults = { 'path'           => '/etc/burp/burp-server.conf',
                                  'section_prefix' => '#[',
-	                    	       }
+	                       }
 
   # Common settings for all clients
   file { '/etc/burp/clientconfdir/incexc/common':
