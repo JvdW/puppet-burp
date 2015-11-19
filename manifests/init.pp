@@ -78,7 +78,7 @@ class burp (
                },
 
                  '/home' => { 'include' => '/home',
-		                        },
+                            },
                },
 ) {
 
