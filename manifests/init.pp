@@ -69,9 +69,9 @@ class burp (
                       },
 
   # client: settings for /etc/burp/burp.conf
-  $burp_hash = { '' => { 'server' 	          => '127.0.0.1',
+  $burp_hash = { '' => { 'server'             => '127.0.0.1',
                          'ssl_key_password'   => 'password',
-                         'password' 	        => 'password',
+                         'password'           => 'password',
                          'server_can_restore' => '1',
                          'setting'            => { 'ensure' => 'absent'
                                                  },
